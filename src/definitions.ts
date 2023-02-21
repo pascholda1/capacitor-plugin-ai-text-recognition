@@ -16,8 +16,6 @@ export interface DetectImageOptions {
    * The image's counter-clockwise orientation degrees. Only 0, 90, 180, 270 are supported. Default 0
    */
   rotation?: number;
-
-  autoDetectRotation?: boolean;
 }
 
 export interface TextDetectionResult {
