@@ -1,11 +1,10 @@
-# @pantrist/capacitor-plugin-ml-kit-text-recognition
+# @pascholda1/capacitor-plugin-ml-kit-text-recognition
 
-[![npm version](https://badge.fury.io/js/@pantrist%2Fcapacitor-plugin-ml-kit-text-recognition.svg)](https://badge.fury.io/js/@pantrist%2Fcapacitor-plugin-ml-kit-text-recognition)
-![npm downloads per month](https://img.shields.io/npm/dm/@pantrist/capacitor-plugin-ml-kit-text-recognition)
-
-Capacitor Wrapper for TextRecognition of Googles ML-Kit
+Capacitor Wrapper for TextRecognition of Googles ML-Kit / Apples Vision Framework
 
 ## Install
+
+// TODO: publish plugin on npm and replace install command
 
 ```bash
 npm install @pantrist/capacitor-plugin-ml-kit-text-recognition
@@ -17,23 +16,26 @@ npx cap sync
 ### Android
 
 **Optional** but recommended:
-You can configure your app to automatically download the ML model to the device after your app is installed from the Play Store.
-To do so, add the following declaration to your app's ``AndroidManifest.xml`` file:
+You can configure your app to automatically download the ML model to the device after your app is installed from the
+Play Store. To do so, add the following declaration to your app's ``AndroidManifest.xml`` file:
 
 ```xml
+
 <application ...>
-  ...
-  <meta-data
-      android:name="com.google.mlkit.vision.DEPENDENCIES"
-      android:value="ocr" />
-  <!-- To use multiple models: android:value="ocr,model2,model3" -->
-</application>
+		...
+<meta-data
+android:name="com.google.mlkit.vision.DEPENDENCIES"
+android:value="ocr"
+/>
+		<!-- To use multiple models: android:value="ocr,model2,model3" -->
+		</application>
 ```
 
 ### iOS
 
 Nothing to do for iOS
 
+**Notice that Apples Vision Framework does not work in blocks. Every block will contain only one single line.**
 
 ## Supported methods
 
@@ -56,7 +58,11 @@ Nothing to do for iOS
 ### detectText(...)
 
 ```typescript
-detectText(options: DetectImageOptions) => Promise<TextDetectionResult>
+detectText(options
+:
+DetectImageOptions
+) =>
+Promise<TextDetectionResult>
 ```
 
 Tries to detect text from the given image
@@ -69,9 +75,7 @@ Tries to detect text from the given image
 
 --------------------
 
-
 ### Interfaces
-
 
 #### TextDetectionResult
 
@@ -80,13 +84,11 @@ Tries to detect text from the given image
 | **`text`**   | <code>string</code>  | Found text           |
 | **`blocks`** | <code>Block[]</code> | Parsed text by lines |
 
-
 #### Block
 
 | Prop        | Type                |
 | ----------- | ------------------- |
 | **`lines`** | <code>Line[]</code> |
-
 
 #### Line
 
@@ -94,9 +96,7 @@ Tries to detect text from the given image
 | -------------- | ---------------------- |
 | **`elements`** | <code>Element[]</code> |
 
-
 #### Element
-
 
 #### DetectImageOptions
 
@@ -106,3 +106,7 @@ Tries to detect text from the given image
 | **`rotation`**    | <code>number</code> | The image's counter-clockwise orientation degrees. Only 0, 90, 180, 270 are supported. Default 0 |
 
 </docgen-api>
+
+### Thanks!
+
+Thanks to the contributors of the original plugin.
