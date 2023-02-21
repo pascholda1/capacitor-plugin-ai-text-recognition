@@ -1,4 +1,4 @@
-package com.pantrist.ml
+package de.pascholda1.ml
 
 import android.util.Base64
 import com.getcapacitor.*
@@ -39,45 +39,45 @@ class CapacitorPluginAiTextRecognition : Plugin() {
         }
 
         recognizer.process(image)
-            .addOnSuccessListener { visionText ->
-                val ret = JSObject()
-                ret.put("text", visionText.text)
+                .addOnSuccessListener { visionText ->
+                    val ret = JSObject()
+                    ret.put("text", visionText.text)
 
-                val textBlocks = JSArray()
-                visionText.textBlocks.forEach { block ->
-                    val blockObject = JSObject();
-                    blockObject.put("text", block.text)
-                    blockObject.put("boundingBox", parseRectToJsObject(block.boundingBox))
-                    blockObject.put("recognizedLanguage", block.recognizedLanguage)
+                    val textBlocks = JSArray()
+                    visionText.textBlocks.forEach { block ->
+                        val blockObject = JSObject();
+                        blockObject.put("text", block.text)
+                        blockObject.put("boundingBox", parseRectToJsObject(block.boundingBox))
+                        blockObject.put("recognizedLanguage", block.recognizedLanguage)
 
-                    val linesArray = JSArray()
-                    block.lines.forEach { line ->
-                        val lineObject = JSObject()
-                        lineObject.put("text", line.text)
-                        lineObject.put("boundingBox", parseRectToJsObject(line.boundingBox))
-                        lineObject.put("recognizedLanguage", line.recognizedLanguage)
+                        val linesArray = JSArray()
+                        block.lines.forEach { line ->
+                            val lineObject = JSObject()
+                            lineObject.put("text", line.text)
+                            lineObject.put("boundingBox", parseRectToJsObject(line.boundingBox))
+                            lineObject.put("recognizedLanguage", line.recognizedLanguage)
 
-                        val elementArray = JSArray()
-                        line.elements.forEach { element ->
-                            val elementObject = JSObject()
-                            elementObject.put("text", element.text)
-                            elementObject.put("boundingBox", parseRectToJsObject(element.boundingBox))
-                            elementObject.put("recognizedLanguage", line.recognizedLanguage)
-                            elementArray.put(elementObject)
+                            val elementArray = JSArray()
+                            line.elements.forEach { element ->
+                                val elementObject = JSObject()
+                                elementObject.put("text", element.text)
+                                elementObject.put("boundingBox", parseRectToJsObject(element.boundingBox))
+                                elementObject.put("recognizedLanguage", line.recognizedLanguage)
+                                elementArray.put(elementObject)
+                            }
+                            lineObject.put("elements", elementArray)
+                            linesArray.put(lineObject)
                         }
-                        lineObject.put("elements", elementArray)
-                        linesArray.put(lineObject)
-                    }
-                    blockObject.put("lines", linesArray)
-                    textBlocks.put(blockObject)
-                };
-                ret.put("blocks", textBlocks)
+                        blockObject.put("lines", linesArray)
+                        textBlocks.put(blockObject)
+                    };
+                    ret.put("blocks", textBlocks)
 
-                call.resolve(ret)
-            }
-            .addOnFailureListener { e ->
-                call.reject("Unable process image!", e)
-            }
+                    call.resolve(ret)
+                }
+                .addOnFailureListener { e ->
+                    call.reject("Unable process image!", e)
+                }
     }
 
     private fun parseRectToJsObject(rect: Rect?): JSObject? {
