@@ -5,7 +5,6 @@ Capacitor Wrapper for TextRecognition of Googles ML-Kit / Apples Vision Framewor
 ## Install
 
 // TODO: publish plugin on npm and replace install command
-
 ```bash
 npm install @pantrist/capacitor-plugin-ml-kit-text-recognition
 npx cap sync
@@ -24,11 +23,11 @@ Play Store. To do so, add the following declaration to your app's ``AndroidManif
 <application ...>
 		...
 <meta-data
-android:name="com.google.mlkit.vision.DEPENDENCIES"
-android:value="ocr"
+    android:name="com.google.mlkit.vision.DEPENDENCIES"
+    android:value="ocr"
 />
-		<!-- To use multiple models: android:value="ocr,model2,model3" -->
-		</application>
+        <!-- To use multiple models: android:value="ocr,model2,model3" -->
+</application>
 ```
 
 ### iOS
@@ -58,11 +57,7 @@ Nothing to do for iOS
 ### detectText(...)
 
 ```typescript
-detectText(options
-:
-DetectImageOptions
-) =>
-Promise<TextDetectionResult>
+detectText(options:DetectImageOptions) => Promise<TextDetectionResult>
 ```
 
 Tries to detect text from the given image
