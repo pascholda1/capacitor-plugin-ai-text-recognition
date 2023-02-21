@@ -12,7 +12,7 @@ import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
 @CapacitorPlugin
-class CapacitorPluginMlKitTextRecognition : Plugin() {
+class CapacitorPluginAiTextRecognition : Plugin() {
     @PluginMethod
     fun detectText(call: PluginCall) {
         val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)

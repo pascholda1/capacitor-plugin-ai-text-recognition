@@ -3,6 +3,6 @@
 
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
-CAP_PLUGIN(CapacitorPluginMlKitTextRecognitionPlugin, "CapacitorPluginMlKitTextRecognition",
+CAP_PLUGIN(CapacitorPluginAiTextRecognitionPlugin, "CapacitorPluginMlKitTextRecognition",
            CAP_PLUGIN_METHOD(detectText, CAPPluginReturnPromise);
 )
