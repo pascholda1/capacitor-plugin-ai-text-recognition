@@ -63,6 +63,18 @@ public class CapacitorPluginAITextRecognitionPlugin: CAPPlugin {
             if let observation = result as? VNRecognizedTextObservation {
                 for text in observation.topCandidates(1) {
                     
+                    let elements = text.string.split(separator: /\w/).map { Substring in
+                        return [
+                            "text": Substring,
+                            "boundingBox": [
+                                "left": text.accessibilityFrame.minX,
+                                "top": text.accessibilityFrame.maxY,
+                                "right": text.accessibilityFrame.maxX,
+                                "bottom": text.accessibilityFrame.minY,
+                            ],
+                            "recognizedLanguage": text.accessibilityLanguage ?? ""
+                        ]
+                    }
                     
                     textBlocks.add([
                         "text": text.string,
@@ -81,7 +93,8 @@ public class CapacitorPluginAITextRecognitionPlugin: CAPPlugin {
                                 "right": text.accessibilityFrame.maxX,
                                 "bottom": text.accessibilityFrame.minY,
                             ],
-                            "recognizedLanguage": text.accessibilityLanguage ?? ""
+                            "recognizedLanguage": text.accessibilityLanguage ?? "",
+                            "elemens":elements
                         ])
                       ])
 
