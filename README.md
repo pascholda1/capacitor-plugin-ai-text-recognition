@@ -34,7 +34,7 @@ Play Store. To do so, add the following declaration to your app's ``AndroidManif
 
 Nothing to do for iOS
 
-**Notice that Apples Vision Framework does not work in blocks. Every block will contain only one single line.**
+**Note that the Vision framework only works with lines. So the bounding boxes of blocks, lines and elements are the same, and each block contains only a single line.**
 
 ## Supported methods
 
