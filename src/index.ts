@@ -1,10 +1,12 @@
-import { registerPlugin } from '@capacitor/core';
+import {registerPlugin} from '@capacitor/core';
 
-import type { CapacitorPluginMlKitTextRecognitionPlugin } from './definitions';
+import type {CapacitorPluginAiTextRecognitionPlugin} from './definitions';
 
-const CapacitorPluginMlKitTextRecognition = registerPlugin<CapacitorPluginMlKitTextRecognitionPlugin>('CapacitorPluginMlKitTextRecognition', {
-  web: () => import('./web').then(m => new m.CapacitorPluginMlKitTextRecognitionWeb()),
-});
+const CapacitorPluginAiTextRecognition = registerPlugin<CapacitorPluginAiTextRecognitionPlugin>(
+    'CapacitorPluginAiTextRecognition', {
+      web: () => import('./web')
+          .then(m => new m.CapacitorPluginAiTextRecognitionWeb()),
+    });
 
 export * from './definitions';
-export { CapacitorPluginMlKitTextRecognition };
+export {CapacitorPluginAiTextRecognition};

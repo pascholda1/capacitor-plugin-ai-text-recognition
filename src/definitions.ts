@@ -1,4 +1,4 @@
-export interface CapacitorPluginMlKitTextRecognitionPlugin {
+export interface CapacitorPluginAiTextRecognitionPlugin {
   /**
    * Tries to detect text from the given image
    * @param options Options for the text detection
@@ -16,6 +16,8 @@ export interface DetectImageOptions {
    * The image's counter-clockwise orientation degrees. Only 0, 90, 180, 270 are supported. Default 0
    */
   rotation?: number;
+
+  autoDetectRotation?: boolean;
 }
 
 export interface TextDetectionResult {
@@ -26,7 +28,7 @@ export interface TextDetectionResult {
   /**
    * Parsed text by lines
    */
-  blocks: Block[]
+  blocks: Block[];
 }
 
 export interface Block extends TextBase {
