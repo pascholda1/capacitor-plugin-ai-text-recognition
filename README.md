@@ -1,4 +1,4 @@
-# @pascholda1/capacitor-plugin-ml-kit-text-recognition
+# @pascholda1/capacitor-plugin-ai-text-recognition
 
 Capacitor Wrapper for TextRecognition of Googles ML-Kit / Apples Vision Framework
 
